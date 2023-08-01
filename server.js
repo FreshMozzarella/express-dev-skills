@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var skillsRouter = require('./routes/skills');
 
 var app = express();
 
@@ -20,7 +20,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/skills', skillsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -39,3 +39,12 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+
+
+//  The goal of the lab is to put in a rep doing everything that you did during the Express - Routers & Controllers lesson:
+
+// Be sure to create an array of "fake" data representing some of your awesome developer skills. The specific properties describing a skill object is up to you!
+
+// Implement index functionality for the skills resource
+
+// Implement show functionality for the skills resource
