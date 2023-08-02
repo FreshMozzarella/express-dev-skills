@@ -1,11 +1,24 @@
 <!-- update this to show off skills -->
-<body>
-    <h1>Skills</h1>
-    <ul>
-      <% skills.forEach(function(t) { %>
-        <li>
-            <a href="/skills/<%=t.id%>"><%= t.skill %></a>
-        </li>
+<%- include('../partials/header')%>
+
+  <h1>Skills</h1>
+  <h3>My Skills as of <%= time %>
+  </h3>
+  <ul>
+    <% skills.forEach(function(t) { %>
+      <li>
+        <form action="/skills/<%= t.id %>?_method=DELETE" class="delete-form" method="POST">
+          <button type="submit">X</button>
+        </form>
+
+        <a href="/skills/<%=t.id%>">
+          <%= t.skill %>
+        </a>
+        -
+        <%= t.isInteresting ? 'it is fun' : 'I do not care for it' %>
+      </li>
       <% }); %>
-    </ul>
-  </body>
+  </ul>
+
+
+  <%- include('../partials/footer')%>
