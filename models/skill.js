@@ -10,6 +10,7 @@ module.exports = {
     getOne,
     create,
     deleteOne,
+    update: updateOne,
 }
 
 function getAll(){
@@ -26,6 +27,17 @@ function create(skill){
 }
 function deleteOne(id) {
     id = parseInt(id);
-    const idx = skills.findIndex(skill => skill.id === id);
+    const idx = skills.findIndex(function(skill){
+        return skill.id === id
+    });
     skills.splice(idx, 1);
+}
+function updateOne(id, data){
+console.log(id, data);
+let index = skills.findIndex(t => t.id == id);
+console.log('current skill index: ', index)
+const updateData = {...data}
+updateData.isInteresting = data.isInteresting ? true : false
+let UpdatedSkills = {...skills[index], ...updateData}
+skills.splice(index, 1, UpdatedSkills)
 }

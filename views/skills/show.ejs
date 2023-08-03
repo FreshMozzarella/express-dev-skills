@@ -1,5 +1,5 @@
 <%- include('../partials/header') %>
     <h1>Skill Show</h1>
-    <p>Skill: <%= skill.skill %> </p>
+    <p>Skill: <%= skill.skill %> - <a href="/skills/<%=skill.id%>/edit">Edit</a></p>
     <%= skill.isInteresting ? 'it is fun' : 'I do not care for it' %>
 <%- include('../partials/footer')%>
